@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Fondo"
+    android:orientation="vertical"
+    tools:context=".menu">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:padding="15dp"
+        android:text="Bienvenido (a)"
+        android:textColor="@color/black"
+        android:textSize="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="153dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/sombreado"
+        android:fontFamily="@font/rochester"
+        android:gravity="center"
+        android:text='\"Manos que hablan palabras que conectan\"'
+        android:textColor="@color/black"
+        android:textSize="40dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="235dp"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/redondeo"
+        android:drawableLeft="@drawable/manita_click"
+        android:fontFamily="@font/roboto_regular"
+        android:paddingLeft="25dp"
+        android:text="Tutorial"
+        android:textAllCaps="false"
+        android:textColor="@color/white" />
+
+</LinearLayout>

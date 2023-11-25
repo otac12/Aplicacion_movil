@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Menú" android:id="@+id/menu" android:icon="@drawable/manita" />
+    <item android:title="Conexión" android:id="@+id/conexion" android:icon="@drawable/conexion"/>
+    <item android:title="Deletreo" android:id="@+id/deletreo" android:icon="@drawable/deletreo" />
+    <item android:title="Palabras" android:id="@+id/palabra" android:icon="@drawable/palabra"/>
+</menu>

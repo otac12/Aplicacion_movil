@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".palabra"
+    android:background="@color/Fondo">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="Palabras"
+        android:textSize="30dp"
+        android:textColor="@color/black"
+        android:background="@color/white"
+        android:gravity="center"
+        android:fontFamily="@font/roboto_bold"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:orientation="horizontal">
+
+
+        <ImageButton
+            android:id="@+id/sustantivos"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:layout_marginTop="55dp"
+            android:layout_marginLeft="25dp"
+            android:src="@drawable/sustantivos"
+            android:background="@drawable/sombreado"/>
+
+        <ImageButton
+            android:id="@+id/tiempos"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="55dp"
+            android:src="@drawable/tiempos"
+            android:background="@drawable/sombreado"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="240dp">
+
+        <ImageButton
+            android:id="@+id/interrogantes"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginBottom="25dp"
+            android:src="@drawable/interrogantes"
+            android:background="@drawable/sombreado"/>
+
+        <ImageButton
+            android:id="@+id/verbos"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginBottom="25dp"
+            android:src="@drawable/verbos"
+            android:background="@drawable/sombreado"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="240dp">
+
+        <ImageButton
+            android:id="@+id/adjetivos"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:layout_marginLeft="25dp"
+            android:layout_marginBottom="55dp"
+            android:src="@drawable/adjetivos"
+            android:background="@drawable/sombreado"
+            />
+
+        <ImageButton
+            android:id="@+id/resfrec"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:layout_marginLeft="25dp"
+            android:layout_marginBottom="55dp"
+            android:src="@drawable/respuestas_frecuentes"
+            android:background="@drawable/sombreado"/>
+
+    </LinearLayout>
+</LinearLayout>
