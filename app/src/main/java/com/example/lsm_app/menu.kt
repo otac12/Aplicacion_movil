@@ -8,8 +8,6 @@ import android.view.ViewGroup
 
 
 class menu : Fragment() {
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

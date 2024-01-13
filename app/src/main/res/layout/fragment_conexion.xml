@@ -1,14 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".conexion">
+    android:background="@color/Fondo"
+    android:orientation="vertical"
+    tools:context=".conexion"
+    android:id="@+id/Cuerpo">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="100dp"
+        android:background="@drawable/sombreado"
+        android:fontFamily="@font/roboto_bold"
+        android:gravity="center"
+        android:text="Dispositivos"
+        android:textColor="@color/black"
+        android:textSize="30dp" />
 
-</FrameLayout>
+    <Button
+        android:id="@+id/Dispositivo"
+        android:layout_width="380dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="13dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/sombreado"
+        android:drawableLeft="@drawable/wifi"
+        android:text="Dispositivo"
+        android:textColor="#000000"
+        app:backgroundTint="#C9E2E6"/>
+
+</LinearLayout>

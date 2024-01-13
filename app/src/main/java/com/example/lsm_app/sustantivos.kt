@@ -31,11 +31,11 @@ class sustantivos : Fragment() {
         val layout: LinearLayout = view.findViewById(R.id.dele)
         val titulo: TextView = view.findViewById(R.id.cabecera)
 
-        val meses: TextView = view.findViewById(R.id.meses)
-        val semanas: TextView = view.findViewById(R.id.semanas)
-        val familia: TextView = view.findViewById(R.id.familia)
-        val animales: TextView = view.findViewById(R.id.animales)
-        val frutas: TextView = view.findViewById(R.id.frutas)
+        val meses: ImageButton = view.findViewById(R.id.meses)
+        val semanas: ImageButton = view.findViewById(R.id.semanas)
+        val familia: ImageButton = view.findViewById(R.id.familia)
+        val animales: ImageButton = view.findViewById(R.id.animales)
+        val frutas: ImageButton = view.findViewById(R.id.frutas)
 
         val bundle = Bundle()
         val nuevofragmen = lista()
