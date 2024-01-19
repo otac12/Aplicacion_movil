@@ -22,7 +22,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="240dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="@color/grisaseo">
 
 
         <ImageButton
@@ -49,7 +50,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="240dp">
+        android:layout_height="240dp"
+        android:background="@color/grisaseo">
 
         <ImageButton
             android:id="@+id/interrogantes"
@@ -78,7 +80,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="240dp">
+        android:layout_height="240dp"
+        android:background="@color/grisaseo">
 
         <ImageButton
             android:id="@+id/adjetivos"

@@ -13,8 +13,15 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import androidx.lifecycle.lifecycleScope
+import com.example.lsm_app.database.PalabraDB
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+
 
 class lista : Fragment() {
 
@@ -36,6 +43,7 @@ class lista : Fragment() {
 
         titulo.setText(cabecera)
 
+        // se hara la peticion a la base de datos y regresara imprimiendo el cuadro
         cabecera?.let {noNuloCabecera ->
             println("Se imprime la cabecera")
             for (letra in cabecera.toLowerCase()){
@@ -61,11 +69,118 @@ class lista : Fragment() {
                 layout.addView(imagen)
 
             }
-        }?: println("Cabecera es nulo")
 
-        // se hara la peticion a la base de datos y regresara imprimiendo el cuadro
 
-        
+            // se hara la peticion a la base de datos y regresara imprimiendo el cuadro
+            lifecycleScope.launch {
+                val palabraDB = PalabraDB.getDatabase(requireContext())
+                val palabraD = palabraDB.palabradao()
+
+                val resultado = palabraD.palabras(cabecera.toLowerCase())
+
+                println("la longitud de tu lista ${resultado.size}")
+
+                // Esta seccion de codigo es para agregar un Layout 1
+                var cont:LinearLayout? = null
+
+                for (i in resultado.indices) {
+
+                    if (i % 3 == 0) {
+                        val linearLayoutexistente = view.findViewById<LinearLayout>(R.id.Ventana)
+                        val linearLayoutnuevo = LinearLayout(requireContext())
+
+                        val nuevoIdString = "Nivel$i"
+                        val nuevoId = resources.getIdentifier(nuevoIdString, "id", requireContext().packageName)
+
+                        linearLayoutnuevo.id = if (nuevoId == 0) View.generateViewId() else nuevoId
+
+                        linearLayoutnuevo.layoutParams = LinearLayout.LayoutParams(
+                            LinearLayout.LayoutParams.MATCH_PARENT,
+                            requireContext().dpToPx(225)
+                        )
+                        linearLayoutnuevo.orientation = LinearLayout.HORIZONTAL
+                        linearLayoutnuevo.setBackgroundColor(resources.getColor(R.color.grisaseo))
+
+                        linearLayoutexistente.addView(linearLayoutnuevo)
+
+                        cont = view.findViewById<LinearLayout>(linearLayoutnuevo.id)
+
+                        val linearLayoutcreado = view.findViewById<LinearLayout>(linearLayoutnuevo.id)
+
+                        val imagen = resources.getIdentifier(resultado[i].palabra +"_icono", "drawable", requireContext().packageName)
+
+                        val boton = ImageButton(requireContext())
+                        val parametros = ViewGroup.MarginLayoutParams(
+                            requireContext().dpToPx(130),
+                            ViewGroup.LayoutParams.WRAP_CONTENT
+                        )
+
+                        parametros.setMargins(15,12,1,12)
+
+                        boton.layoutParams = parametros
+                        boton.scaleType = ImageView.ScaleType.FIT_XY
+                        boton.setImageResource(imagen)
+                        boton.setBackgroundResource(R.drawable.sombreado)
+
+                        boton.setOnClickListener(){
+                            val ventana = Previsualizacion()
+                            val bundle = Bundle()
+                            bundle.putString("direccion", "a")
+                            ventana.arguments = bundle
+                            ventana.show((activity as AppCompatActivity).supportFragmentManager,"ventana")
+                        }
+
+                        if (linearLayoutcreado != null) {
+                            linearLayoutcreado.addView(boton)
+                        } else {
+                            // Manejar el caso en el que linearLayoutcre es nulo
+                        }
+                    } else {
+                        val linearLayoutcreado = cont
+
+                        val imagen = resources.getIdentifier(resultado[i].palabra +"_icono", "drawable", requireContext().packageName)
+
+                        val boton = ImageButton(requireContext())
+                        val parametros = ViewGroup.MarginLayoutParams(
+                            requireContext().dpToPx(130),
+                            ViewGroup.LayoutParams.WRAP_CONTENT
+                        )
+
+                        parametros.setMargins(15,12,1,12)
+
+                        boton.layoutParams = parametros
+                        boton.scaleType = ImageView.ScaleType.FIT_XY
+                        boton.setImageResource(imagen)
+                        boton.setBackgroundResource(R.drawable.sombreado)
+
+                        boton.setOnClickListener(){
+                            val ventana = Previsualizacion()
+                            val bundle = Bundle()
+                            bundle.putString("direccion", "a")
+                            ventana.arguments = bundle
+                            ventana.show((activity as AppCompatActivity).supportFragmentManager,"ventana")
+                        }
+
+                        if (linearLayoutcreado != null) {
+                            linearLayoutcreado.addView(boton)
+                        } else {
+                            // Manejar el caso en el que linearLayoutcre es nulo
+                        }
+                    }
+                }
+                // ------ Layout 1
+
+
+
+            }
+        }
+
+            ?: println("Cabecera es nulo")
+
+
+
+
+
 
 
         regreso.setOnClickListener(){

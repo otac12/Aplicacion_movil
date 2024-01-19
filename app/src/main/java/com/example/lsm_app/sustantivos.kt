@@ -97,7 +97,7 @@ class sustantivos : Fragment() {
             transaction.replace(R.id.frameLayout, nuevofragmen)
             transaction.commit()
 
-            bundle.putString("cabecera", "Semanas")
+            bundle.putString("cabecera", "Semana")
             nuevofragmen.arguments = bundle
         }
 
