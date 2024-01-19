@@ -45,13 +45,79 @@ abstract class PalabraDB: RoomDatabase() {
                 GlobalScope.launch(Dispatchers.IO) {
                     val palabraDao = INSTANCE?.palabradao()
 
-                    palabraDao?.ingresarpalabra(Entidad(palabra="lunes",categoria="semana", frame = 3))
-                    palabraDao?.ingresarpalabra(Entidad(palabra="martes",categoria="semana", frame = 3))
-                    palabraDao?.ingresarpalabra(Entidad(palabra="miercoles",categoria="semana", frame = 3))
-                    palabraDao?.ingresarpalabra(Entidad(palabra="jueves",categoria="semana", frame = 3))
-                    palabraDao?.ingresarpalabra(Entidad(palabra="viernes",categoria="semana", frame = 3))
-                    palabraDao?.ingresarpalabra(Entidad(palabra="sabado",categoria="semana", frame = 3))
-                    palabraDao?.ingresarpalabra(Entidad(palabra="domingo",categoria="semana", frame = 3))
+                    val dias = listOf("lunes", "martes", "miercoles", "jueves", "viernes","sabado","domingo");
+                    val meses = listOf("enero", "febrero","marzo","abril", "mayo","junio","julio","agosto","septiembre","octubre","diciembre");
+
+
+                    for(item in dias){
+                        palabraDao?.ingresarpalabra(Entidad(palabra=item,categoria="semana", frame = 6))
+                    }
+
+                    for(item in meses){
+
+                        if(item=="abril" || item=="marzo"){
+                            palabraDao?.ingresarpalabra(Entidad(palabra=item,categoria="meses", frame = 6))
+                        }else{
+                            palabraDao?.ingresarpalabra(Entidad(palabra=item,categoria="meses", frame = 5))
+                        }
+                    }
+
+                    palabraDao?.ingresarpalabra(Entidad(palabra="hoy",categoria="tiempos", frame = 3))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="ayer",categoria="tiempos", frame = 5))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="mañana",categoria="tiempos", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="ahora",categoria="tiempos", frame = 3))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="ahorita",categoria="tiempos", frame = 4))
+
+                    palabraDao?.ingresarpalabra(Entidad(palabra="gato",categoria="animales", frame = 3))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="perro",categoria="animales", frame = 5))
+
+                    palabraDao?.ingresarpalabra(Entidad(palabra="manzana",categoria="frutas", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="naranja",categoria="frutas", frame = 3))
+
+                    palabraDao?.ingresarpalabra(Entidad(palabra="papa",categoria="familia", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="mama",categoria="familia", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="niña",categoria="familia", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="niño",categoria="familia", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="abuela",categoria="familia", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="abuelo",categoria="familia", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="hija",categoria="familia", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="hijo",categoria="familia", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="novia",categoria="familia", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="novio",categoria="familia", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="amigo",categoria="familia", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="amiga",categoria="familia", frame = 6))
+
+                    palabraDao?.ingresarpalabra(Entidad(palabra="celular",categoria="extras", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="casa",categoria="extras", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="mesa",categoria="extras", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="silla",categoria="extras", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="libro",categoria="extras", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="computadora",categoria="extras", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="avion",categoria="extras", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="coche",categoria="extras", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="cafe",categoria="extras", frame = 6))
+
+                    palabraDao?.ingresarpalabra(Entidad(palabra="ir",categoria="verbos", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="comer",categoria="extras", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="buscar",categoria="extras", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="recordar",categoria="extras", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="gustar",categoria="extras", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="querer",categoria="extras", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="conocer",categoria="extras", frame = 6))
+
+                    palabraDao?.ingresarpalabra(Entidad(palabra="dulce",categoria="adjetivos", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="frio",categoria="adjetivos", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="caliente",categoria="adjetivos", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="grande",categoria="adjetivos", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="pequeño",categoria="adjetivos", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="delgado",categoria="adjetivos", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="gordo",categoria="adjetivos", frame = 6))
+
+
+
+
+
+
 
                     // Agregar más inserciones según sea necesario
                 }

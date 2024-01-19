@@ -184,12 +184,16 @@ class lista : Fragment() {
 
 
         regreso.setOnClickListener(){
-            val nuevofragmen = palabra()
+            val bundle = Bundle()
+            val nuevofragmen = sustantivos()
             val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
             val transaction: FragmentTransaction = fragmentManager.beginTransaction()
 
             transaction.replace(R.id.frameLayout, nuevofragmen)
             transaction.commit()
+
+            bundle.putString("cabecera", "Sustantivos")
+            nuevofragmen.arguments = bundle
         }
 
     }

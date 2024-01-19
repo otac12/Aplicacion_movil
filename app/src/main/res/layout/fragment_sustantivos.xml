@@ -15,10 +15,9 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_margin="25dp"
-            android:src="@drawable/regreso"
+            android:background="#00FFFFFF"
             android:scaleType="fitXY"
-            android:background="#00FFFFFF">
-        </ImageButton>
+            android:src="@drawable/regreso"></ImageButton>
 
         <TextView
             android:id="@+id/cabecera"
