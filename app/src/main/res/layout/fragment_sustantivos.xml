@@ -118,7 +118,7 @@
             />
 
         <ImageButton
-            android:id="@+id/cosas"
+            android:id="@+id/extras"
             android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:scaleType="fitXY"

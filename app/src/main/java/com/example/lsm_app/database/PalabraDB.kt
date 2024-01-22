@@ -46,7 +46,7 @@ abstract class PalabraDB: RoomDatabase() {
                     val palabraDao = INSTANCE?.palabradao()
 
                     val dias = listOf("lunes", "martes", "miercoles", "jueves", "viernes","sabado","domingo");
-                    val meses = listOf("enero", "febrero","marzo","abril", "mayo","junio","julio","agosto","septiembre","octubre","diciembre");
+                    val meses = listOf("enero", "febrero","marzo","abril", "mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre");
 
 
                     for(item in dias){
@@ -64,7 +64,7 @@ abstract class PalabraDB: RoomDatabase() {
 
                     palabraDao?.ingresarpalabra(Entidad(palabra="hoy",categoria="tiempos", frame = 3))
                     palabraDao?.ingresarpalabra(Entidad(palabra="ayer",categoria="tiempos", frame = 5))
-                    palabraDao?.ingresarpalabra(Entidad(palabra="mañana",categoria="tiempos", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="manana",categoria="tiempos", frame = 6))
                     palabraDao?.ingresarpalabra(Entidad(palabra="ahora",categoria="tiempos", frame = 3))
                     palabraDao?.ingresarpalabra(Entidad(palabra="ahorita",categoria="tiempos", frame = 4))
 
@@ -76,8 +76,8 @@ abstract class PalabraDB: RoomDatabase() {
 
                     palabraDao?.ingresarpalabra(Entidad(palabra="papa",categoria="familia", frame = 6))
                     palabraDao?.ingresarpalabra(Entidad(palabra="mama",categoria="familia", frame = 6))
-                    palabraDao?.ingresarpalabra(Entidad(palabra="niña",categoria="familia", frame = 6))
-                    palabraDao?.ingresarpalabra(Entidad(palabra="niño",categoria="familia", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="nina",categoria="familia", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="nino",categoria="familia", frame = 6))
                     palabraDao?.ingresarpalabra(Entidad(palabra="abuela",categoria="familia", frame = 6))
                     palabraDao?.ingresarpalabra(Entidad(palabra="abuelo",categoria="familia", frame = 6))
                     palabraDao?.ingresarpalabra(Entidad(palabra="hija",categoria="familia", frame = 6))
@@ -98,18 +98,18 @@ abstract class PalabraDB: RoomDatabase() {
                     palabraDao?.ingresarpalabra(Entidad(palabra="cafe",categoria="extras", frame = 6))
 
                     palabraDao?.ingresarpalabra(Entidad(palabra="ir",categoria="verbos", frame = 6))
-                    palabraDao?.ingresarpalabra(Entidad(palabra="comer",categoria="extras", frame = 6))
-                    palabraDao?.ingresarpalabra(Entidad(palabra="buscar",categoria="extras", frame = 6))
-                    palabraDao?.ingresarpalabra(Entidad(palabra="recordar",categoria="extras", frame = 6))
-                    palabraDao?.ingresarpalabra(Entidad(palabra="gustar",categoria="extras", frame = 6))
-                    palabraDao?.ingresarpalabra(Entidad(palabra="querer",categoria="extras", frame = 6))
-                    palabraDao?.ingresarpalabra(Entidad(palabra="conocer",categoria="extras", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="comer",categoria="verbos", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="buscar",categoria="verbos", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="recordar",categoria="verbos", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="gustar",categoria="verbos", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="querer",categoria="verbos", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="conocer",categoria="verbos", frame = 6))
 
                     palabraDao?.ingresarpalabra(Entidad(palabra="dulce",categoria="adjetivos", frame = 6))
                     palabraDao?.ingresarpalabra(Entidad(palabra="frio",categoria="adjetivos", frame = 6))
                     palabraDao?.ingresarpalabra(Entidad(palabra="caliente",categoria="adjetivos", frame = 6))
                     palabraDao?.ingresarpalabra(Entidad(palabra="grande",categoria="adjetivos", frame = 6))
-                    palabraDao?.ingresarpalabra(Entidad(palabra="pequeño",categoria="adjetivos", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="pequeno",categoria="adjetivos", frame = 6))
                     palabraDao?.ingresarpalabra(Entidad(palabra="delgado",categoria="adjetivos", frame = 6))
                     palabraDao?.ingresarpalabra(Entidad(palabra="gordo",categoria="adjetivos", frame = 6))
 

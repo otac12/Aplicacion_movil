@@ -28,9 +28,29 @@ class Previsualizacion : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        var frame:Int =0
+
         val imagen = arguments?.getString("direccion")
 
+        arguments?.getInt("frame")?.let {
+            frame = it
+        }
+
         val imageView = view?.findViewById<ImageView>(R.id.imageView)
+
+        val id = resources.getIdentifier(imagen + "_persona_1","drawable",requireContext().packageName)
+
+        if(id != 0){
+            imageView?.setImageResource(id)
+            println(imagen)
+            println("se encontro")
+
+        }else{
+            println(imagen)
+            imageView?.setImageResource(R.drawable.a_persona)
+            frame=0
+            println("No se encontro")
+        }
 
         when(imagen){
             "a" -> imageView?.setImageResource(R.drawable.a_persona)
@@ -62,8 +82,10 @@ class Previsualizacion : DialogFragment() {
             "z" -> imageView?.setImageResource(R.drawable.z_persona_1)
         }
 
+
+
         imageView?.let {
-            animacion(imagen, it)
+            animacion(imagen, it , frame)
         }
 
         var x = view.findViewById<Button>(R.id.cerrar)
@@ -75,173 +97,183 @@ class Previsualizacion : DialogFragment() {
 
         repetir.setOnClickListener{
             imageView?.let {
-                animacion(imagen, it)
+                animacion(imagen, it,frame)
             }
         }
     }
 
-    fun animacion(imagen:String?,imageView: ImageView?){
+    fun animacion(imagen:String?,imageView: ImageView?,frame: Int){
 
-        if(imagen == "z"){
-            for(i in 1..4){
-                val ruta = "z_persona_$i"
+        if(frame == 0){
+            if(imagen == "z"){
+                for(i in 1..4){
+                    val ruta = "z_persona_$i"
+                    val num = 250*(i-1)
+                    val idDrawable = resources.getIdentifier(ruta, "drawable", requireContext().packageName)
+                    Handler().postDelayed({
+                        imageView?.setImageResource(idDrawable)
+                    },num.toLong())
+                }
+            }
+
+            if(imagen == "ne"){
+                for(i in 2..5){
+                    val ruta = "nn_persona_$i"
+                    val num = 100*(i-1)
+                    val idDrawable = resources.getIdentifier(ruta, "drawable", requireContext().packageName)
+                    Handler().postDelayed({
+                        imageView?.setImageResource(idDrawable)
+                    },num.toLong())
+                }
+                val inicio = 5
+                var c=1
+
+                for(i in inicio downTo 1){
+                    val ruta = "nn_persona_$i"
+                    val num = (100*5)+(100*c)
+                    val idDrawable = resources.getIdentifier(ruta, "drawable", requireContext().packageName)
+                    Handler().postDelayed({
+                        imageView?.setImageResource(idDrawable)
+                    },num.toLong())
+
+                    c=c+1
+                }
+
+            }
+
+            if(imagen == "j"){
+                for(i in 1..6){
+                    val ruta = "j_persona_$i"
+                    val num = 150*(i-1)
+                    val idDrawable = resources.getIdentifier(ruta, "drawable", requireContext().packageName)
+                    Handler().postDelayed({
+                        imageView?.setImageResource(idDrawable)
+                    },num.toLong())
+                }
+            }
+
+            if(imagen == "x"){
+                for(i in 1..3){
+                    val ruta = "x_persona_$i"
+                    val num = 150*(i-1)
+                    val idDrawable = resources.getIdentifier(ruta, "drawable", requireContext().packageName)
+                    Handler().postDelayed({
+                        imageView?.setImageResource(idDrawable)
+                    },num.toLong())
+                }
+            }
+
+            if (imagen == "k"){
+                val frame=200
+                for(i in 1..3){
+                    val ruta = "k_persona_$i"
+                    val num = frame*i
+                    val idDrawable = resources.getIdentifier(ruta, "drawable", requireContext().packageName)
+                    Handler().postDelayed({
+                        imageView?.setImageResource(idDrawable)
+                    },num.toLong())
+                }
+                var inicio = 3
+                var c=1
+
+                for(i in inicio downTo 1){
+                    val ruta = "k_persona_$i"
+                    val num = (frame*3)+(frame*c)
+                    val idDrawable = resources.getIdentifier(ruta, "drawable", requireContext().packageName)
+                    Handler().postDelayed({
+                        imageView?.setImageResource(idDrawable)
+                    },num.toLong())
+                    c=c+1
+                }
+
+                for(i in 4..6){
+                    val ruta = "k_persona_$i"
+                    val num = (frame*6)+(frame*(i-3))
+                    val idDrawable = resources.getIdentifier(ruta, "drawable", requireContext().packageName)
+                    Handler().postDelayed({
+                        imageView?.setImageResource(idDrawable)
+                    },num.toLong())
+                }
+
+                inicio = 6
+                c=1
+                println(inicio)
+                println(c)
+                for(i in inicio downTo 4){
+                    val ruta = "k_persona_$i"
+                    val num = (frame*9)+(frame*c)
+                    println(num)
+                    println(i)
+                    val idDrawable = resources.getIdentifier(ruta, "drawable", requireContext().packageName)
+                    Handler().postDelayed({
+                        imageView?.setImageResource(idDrawable)
+                    },num.toLong())
+
+                    c=c+1
+                }
+
+            }
+
+            if (imagen == "q"){
+                val frame=200
+                for(i in 1..3){
+                    val ruta = "q_persona_$i"
+                    val num = frame*i
+                    val idDrawable = resources.getIdentifier(ruta, "drawable", requireContext().packageName)
+                    Handler().postDelayed({
+                        imageView?.setImageResource(idDrawable)
+                    },num.toLong())
+                }
+                var inicio = 3
+                var c=1
+
+                for(i in inicio downTo 1){
+                    val ruta = "q_persona_$i"
+                    val num = (frame*3)+(frame*c)
+                    val idDrawable = resources.getIdentifier(ruta, "drawable", requireContext().packageName)
+                    Handler().postDelayed({
+                        imageView?.setImageResource(idDrawable)
+                    },num.toLong())
+                    c=c+1
+                }
+
+                for(i in 4..6){
+                    val ruta = "q_persona_$i"
+                    val num = (frame*6)+(frame*(i-3))
+                    val idDrawable = resources.getIdentifier(ruta, "drawable", requireContext().packageName)
+                    Handler().postDelayed({
+                        imageView?.setImageResource(idDrawable)
+                    },num.toLong())
+                }
+
+                inicio = 6
+                c=1
+                println(inicio)
+                println(c)
+                for(i in inicio downTo 4){
+                    val ruta = "q_persona_$i"
+                    val num = (frame*9)+(frame*c)
+                    println(num)
+                    println(i)
+                    val idDrawable = resources.getIdentifier(ruta, "drawable", requireContext().packageName)
+                    Handler().postDelayed({
+                        imageView?.setImageResource(idDrawable)
+                    },num.toLong())
+
+                    c=c+1
+                }
+
+            }
+
+        }else{
+            for (i in 1 until frame+1){
                 val num = 250*(i-1)
-                val idDrawable = resources.getIdentifier(ruta, "drawable", requireContext().packageName)
+                val id = resources.getIdentifier(imagen + "_persona_"+i,"drawable",requireContext().packageName)
                 Handler().postDelayed({
-                    imageView?.setImageResource(idDrawable)
+                    imageView?.setImageResource(id)
                 },num.toLong())
             }
         }
-
-        if(imagen == "ne"){
-            for(i in 2..5){
-                val ruta = "nn_persona_$i"
-                val num = 100*(i-1)
-                val idDrawable = resources.getIdentifier(ruta, "drawable", requireContext().packageName)
-                Handler().postDelayed({
-                    imageView?.setImageResource(idDrawable)
-                },num.toLong())
-            }
-            val inicio = 5
-            var c=1
-
-            for(i in inicio downTo 1){
-                val ruta = "nn_persona_$i"
-                val num = (100*5)+(100*c)
-                val idDrawable = resources.getIdentifier(ruta, "drawable", requireContext().packageName)
-                Handler().postDelayed({
-                    imageView?.setImageResource(idDrawable)
-                },num.toLong())
-
-                c=c+1
-            }
-
-        }
-
-        if(imagen == "j"){
-            for(i in 1..6){
-                val ruta = "j_persona_$i"
-                val num = 150*(i-1)
-                val idDrawable = resources.getIdentifier(ruta, "drawable", requireContext().packageName)
-                Handler().postDelayed({
-                    imageView?.setImageResource(idDrawable)
-                },num.toLong())
-            }
-        }
-
-        if(imagen == "x"){
-            for(i in 1..3){
-                val ruta = "x_persona_$i"
-                val num = 150*(i-1)
-                val idDrawable = resources.getIdentifier(ruta, "drawable", requireContext().packageName)
-                Handler().postDelayed({
-                    imageView?.setImageResource(idDrawable)
-                },num.toLong())
-            }
-        }
-
-        if (imagen == "k"){
-            val frame=200
-            for(i in 1..3){
-                val ruta = "k_persona_$i"
-                val num = frame*i
-                val idDrawable = resources.getIdentifier(ruta, "drawable", requireContext().packageName)
-                Handler().postDelayed({
-                    imageView?.setImageResource(idDrawable)
-                },num.toLong())
-            }
-            var inicio = 3
-            var c=1
-
-            for(i in inicio downTo 1){
-                val ruta = "k_persona_$i"
-                val num = (frame*3)+(frame*c)
-                val idDrawable = resources.getIdentifier(ruta, "drawable", requireContext().packageName)
-                Handler().postDelayed({
-                    imageView?.setImageResource(idDrawable)
-                },num.toLong())
-                c=c+1
-            }
-
-            for(i in 4..6){
-                val ruta = "k_persona_$i"
-                val num = (frame*6)+(frame*(i-3))
-                val idDrawable = resources.getIdentifier(ruta, "drawable", requireContext().packageName)
-                Handler().postDelayed({
-                    imageView?.setImageResource(idDrawable)
-                },num.toLong())
-            }
-
-            inicio = 6
-            c=1
-            println(inicio)
-            println(c)
-            for(i in inicio downTo 4){
-                val ruta = "k_persona_$i"
-                val num = (frame*9)+(frame*c)
-                println(num)
-                println(i)
-                val idDrawable = resources.getIdentifier(ruta, "drawable", requireContext().packageName)
-                Handler().postDelayed({
-                    imageView?.setImageResource(idDrawable)
-                },num.toLong())
-
-                c=c+1
-            }
-
-        }
-
-        if (imagen == "q"){
-            val frame=200
-            for(i in 1..3){
-                val ruta = "q_persona_$i"
-                val num = frame*i
-                val idDrawable = resources.getIdentifier(ruta, "drawable", requireContext().packageName)
-                Handler().postDelayed({
-                    imageView?.setImageResource(idDrawable)
-                },num.toLong())
-            }
-            var inicio = 3
-            var c=1
-
-            for(i in inicio downTo 1){
-                val ruta = "q_persona_$i"
-                val num = (frame*3)+(frame*c)
-                val idDrawable = resources.getIdentifier(ruta, "drawable", requireContext().packageName)
-                Handler().postDelayed({
-                    imageView?.setImageResource(idDrawable)
-                },num.toLong())
-                c=c+1
-            }
-
-            for(i in 4..6){
-                val ruta = "q_persona_$i"
-                val num = (frame*6)+(frame*(i-3))
-                val idDrawable = resources.getIdentifier(ruta, "drawable", requireContext().packageName)
-                Handler().postDelayed({
-                    imageView?.setImageResource(idDrawable)
-                },num.toLong())
-            }
-
-            inicio = 6
-            c=1
-            println(inicio)
-            println(c)
-            for(i in inicio downTo 4){
-                val ruta = "q_persona_$i"
-                val num = (frame*9)+(frame*c)
-                println(num)
-                println(i)
-                val idDrawable = resources.getIdentifier(ruta, "drawable", requireContext().packageName)
-                Handler().postDelayed({
-                    imageView?.setImageResource(idDrawable)
-                },num.toLong())
-
-                c=c+1
-            }
-
-        }
-
 
     }
 

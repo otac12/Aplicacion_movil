@@ -18,8 +18,6 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.lifecycleScope
 import com.example.lsm_app.database.PalabraDB
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 
@@ -86,7 +84,7 @@ class lista : Fragment() {
                 for (i in resultado.indices) {
 
                     if (i % 3 == 0) {
-                        val linearLayoutexistente = view.findViewById<LinearLayout>(R.id.Ventana)
+                        val linearLayoutexistente = view.findViewById<LinearLayout>(R.id.scro)
                         val linearLayoutnuevo = LinearLayout(requireContext())
 
                         val nuevoIdString = "Nivel$i"
@@ -125,7 +123,8 @@ class lista : Fragment() {
                         boton.setOnClickListener(){
                             val ventana = Previsualizacion()
                             val bundle = Bundle()
-                            bundle.putString("direccion", "a")
+                            bundle.putString("direccion", resultado[i].palabra)
+                            bundle.putInt("frame", resultado[i].frame )
                             ventana.arguments = bundle
                             ventana.show((activity as AppCompatActivity).supportFragmentManager,"ventana")
                         }
@@ -156,7 +155,8 @@ class lista : Fragment() {
                         boton.setOnClickListener(){
                             val ventana = Previsualizacion()
                             val bundle = Bundle()
-                            bundle.putString("direccion", "a")
+                            bundle.putString("direccion", resultado[i].palabra)
+                            bundle.putInt("frame", resultado[i].frame )
                             ventana.arguments = bundle
                             ventana.show((activity as AppCompatActivity).supportFragmentManager,"ventana")
                         }
@@ -178,22 +178,28 @@ class lista : Fragment() {
             ?: println("Cabecera es nulo")
 
 
+        if (cabecera == "Tiempos"|| cabecera == "Interrogantes" || cabecera == "Verbos" || cabecera == "Adjetivos"|| cabecera == "Respuestas" || cabecera =="Respuestas Frecuentes"){
+            regreso.setOnClickListener(){
+                val nuevofragmen = palabra()
+                val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
+                val transaction: FragmentTransaction = fragmentManager.beginTransaction()
 
+                transaction.replace(R.id.frameLayout, nuevofragmen)
+                transaction.commit()
+            }
+        }else{
+            regreso.setOnClickListener(){
+                val bundle = Bundle()
+                val nuevofragmen = sustantivos()
+                val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
+                val transaction: FragmentTransaction = fragmentManager.beginTransaction()
 
+                transaction.replace(R.id.frameLayout, nuevofragmen)
+                transaction.commit()
 
-
-
-        regreso.setOnClickListener(){
-            val bundle = Bundle()
-            val nuevofragmen = sustantivos()
-            val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
-            val transaction: FragmentTransaction = fragmentManager.beginTransaction()
-
-            transaction.replace(R.id.frameLayout, nuevofragmen)
-            transaction.commit()
-
-            bundle.putString("cabecera", "Sustantivos")
-            nuevofragmen.arguments = bundle
+                bundle.putString("cabecera", "Sustantivos")
+                nuevofragmen.arguments = bundle
+            }
         }
 
     }

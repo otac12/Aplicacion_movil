@@ -36,6 +36,7 @@ class sustantivos : Fragment() {
         val familia: ImageButton = view.findViewById(R.id.familia)
         val animales: ImageButton = view.findViewById(R.id.animales)
         val frutas: ImageButton = view.findViewById(R.id.frutas)
+        val extra: ImageButton = view.findViewById(R.id.extras)
 
         val bundle = Bundle()
         val nuevofragmen = lista()
@@ -121,6 +122,7 @@ class sustantivos : Fragment() {
             bundle.putString("cabecera", "Animales")
             nuevofragmen.arguments = bundle
         }
+
         frutas.setOnClickListener(){
             val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
             val transaction: FragmentTransaction = fragmentManager.beginTransaction()
@@ -129,6 +131,17 @@ class sustantivos : Fragment() {
             transaction.commit()
 
             bundle.putString("cabecera", "Frutas")
+            nuevofragmen.arguments = bundle
+        }
+
+        extra.setOnClickListener(){
+            val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
+            val transaction: FragmentTransaction = fragmentManager.beginTransaction()
+
+            transaction.replace(R.id.frameLayout, nuevofragmen)
+            transaction.commit()
+
+            bundle.putString("cabecera", "Extras")
             nuevofragmen.arguments = bundle
         }
 
