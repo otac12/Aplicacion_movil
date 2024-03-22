@@ -72,7 +72,7 @@ abstract class PalabraDB: RoomDatabase() {
                     palabraDao?.ingresarpalabra(Entidad(palabra="perro",categoria="animales", frame = 5))
 
                     palabraDao?.ingresarpalabra(Entidad(palabra="manzana",categoria="frutas", frame = 6))
-                    palabraDao?.ingresarpalabra(Entidad(palabra="naranja",categoria="frutas", frame = 3))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="naranja",categoria="frutas", frame = 7))
 
                     palabraDao?.ingresarpalabra(Entidad(palabra="papa",categoria="familia", frame = 6))
                     palabraDao?.ingresarpalabra(Entidad(palabra="mama",categoria="familia", frame = 6))
