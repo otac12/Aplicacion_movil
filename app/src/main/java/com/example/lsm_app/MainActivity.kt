@@ -4,14 +4,7 @@ package com.example.lsm_app
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
-import androidx.room.Room
-import com.example.lsm_app.database.Entidad
-import com.example.lsm_app.database.PalabraDB
 import com.example.lsm_app.databinding.ActivityMainBinding
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity() {
 
