@@ -17,12 +17,17 @@ import androidx.camera.core.AspectRatio
 import androidx.camera.core.ImageAnalysis
 import com.google.mediapipe.tasks.vision.core.RunningMode
 import java.util.concurrent.Executors
+import android.media.MediaPlayer
+import android.widget.TextView
 
 class conexion : Fragment() {
 
     private lateinit var gestureRecognizerHelper: GestureRecognizerHelper
     private lateinit var previewView: PreviewView
     private val cameraExecutor = Executors.newSingleThreadExecutor()
+    private var Media:MediaPlayer?=null
+    private var Time = 0
+    private var PalabraAnterior = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -90,7 +95,7 @@ class conexion : Fragment() {
             })
 
             val cameraSelector = CameraSelector.Builder()
-                .requireLensFacing(CameraSelector.LENS_FACING_FRONT)
+                .requireLensFacing(CameraSelector.LENS_FACING_BACK)
                 .build()
 
             cameraProvider.bindToLifecycle(
@@ -119,6 +124,34 @@ class conexion : Fragment() {
                 if (match != null) {
                     val gesto = match.groupValues[1]
                     Log.d(TAG, "Detected gesture: $gesto")
+
+                    val audio = resources.getIdentifier(gesto,"raw",requireContext().packageName)
+                    val texto = view?.findViewById<TextView>(R.id.sena)
+
+                    texto?.text=gesto
+
+                    if (audio != 0){
+
+                        if(PalabraAnterior == gesto){
+                            Time = Time + 1
+                        }else{
+                            Time=0
+                        }
+
+                        PalabraAnterior = gesto
+                        if(Time>30){
+                            Time=0
+                        }
+
+                        if(Time==0){
+                            Media = MediaPlayer.create(requireContext(),audio)
+                            Media?.start()
+                        }
+
+                    }else{
+                        Log.d(TAG,"No se encontro el audio")
+                    }
+
                 } else {
                     println("No se encontró texto entre comillas")
                 }

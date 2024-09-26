@@ -113,12 +113,13 @@ abstract class PalabraDB: RoomDatabase() {
                     palabraDao?.ingresarpalabra(Entidad(palabra="delgado",categoria="adjetivos", frame = 6))
                     palabraDao?.ingresarpalabra(Entidad(palabra="gordo",categoria="adjetivos", frame = 6))
 
-
-
-
-
-
-
+                    palabraDao?.ingresarpalabra(Entidad(palabra="que",categoria="interrogantes", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="cuando",categoria="interrogantes", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="donde",categoria="interrogantes", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="cuantos",categoria="interrogantes", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="paraque",categoria="interrogantes", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="porque",categoria="interrogantes", frame = 6))
+                    palabraDao?.ingresarpalabra(Entidad(palabra="quien",categoria="interrogantes", frame = 6))
                     // Agregar más inserciones según sea necesario
                 }
             }
