@@ -139,11 +139,11 @@ class conexion : Fragment() {
                         }
 
                         PalabraAnterior = gesto
-                        if(Time>30){
+                        if(Time>20){
                             Time=0
                         }
 
-                        if(Time==0){
+                        if(Time>5){
                             Media = MediaPlayer.create(requireContext(),audio)
                             Media?.start()
                         }
