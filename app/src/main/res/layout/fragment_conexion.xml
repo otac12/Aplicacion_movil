@@ -7,7 +7,8 @@
     android:background="@color/Fondo"
     android:orientation="vertical"
     tools:context=".conexion"
-    android:id="@+id/Cuerpo">
+    android:id="@+id/Cuerpo"
+    tools:ignore="MissingClass">
 
     <TextView
         android:layout_width="match_parent"
@@ -19,11 +20,22 @@
         android:textColor="@color/black"
         android:textSize="30dp" />
 
-    <androidx.camera.view.PreviewView
-        android:id="@+id/camera"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="652dp"
-        app:scaleType="fillStart" />
+        android:layout_height="652dp">
+
+        <androidx.camera.view.PreviewView
+            android:id="@+id/camera"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:scaleType="fillStart" />
+
+        <com.example.lsm_app.Draw
+            android:id="@+id/overlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </FrameLayout>
 
     <TextView
         android:id="@+id/sena"
@@ -34,6 +46,7 @@
         android:textSize="34sp"
         android:layout_marginRight= "10dp"
         android:gravity = "center"/>
+
 
     <!--
     <Button
